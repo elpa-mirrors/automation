@@ -1,0 +1,25 @@
+name: Mirror repositories
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '11 * * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repository:
+          - elpa
+          - nongnu
+    steps:
+      - name: Clone
+        run: |
+          git clone --mirror https://git.savannah.gnu.org/git/emacs/${{ matrix.repository }}.git
+      - name: Push
+        working-directory: '${{ matrix.repository }}.git'
+        run: |
+          git remote set-url --push origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository_owner }}/${{ matrix.repository }}.git
+          git push --mirror origin
