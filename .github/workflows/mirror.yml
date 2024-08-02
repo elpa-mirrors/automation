@@ -18,9 +18,9 @@ jobs:
     steps:
       - name: Clone
         run: |
-          git clone --mirror https://git.savannah.gnu.org/git/emacs/${{ matrix.repository }}.git
+          git clone https://git.savannah.gnu.org/git/emacs/${{ matrix.repository }}.git
       - name: Push
-        working-directory: '${{ matrix.repository }}.git'
+        working-directory: ${{ matrix.repository }}
         run: |
           git remote set-url --push origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository_owner }}/${{ matrix.repository }}.git
-          git push --mirror origin
+          git push --force origin HEAD
