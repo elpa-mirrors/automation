@@ -10,6 +10,7 @@ jobs:
   mirror:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         repository:
           - elpa
