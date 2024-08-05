@@ -5,7 +5,6 @@ on:
     - cron: '11 1/6 * * *'
 concurrency:
   group: ${{ github.workflow }}
-  cancel-in-progress: true
 jobs:
   mirror:
     runs-on: ubuntu-latest
