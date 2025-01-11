@@ -23,4 +23,4 @@ jobs:
         working-directory: ${{ matrix.repository }}
         run: |
           git remote set-url --push origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository_owner }}/${{ matrix.repository }}.git
-          git push --force origin HEAD
+          git push --force origin --all
