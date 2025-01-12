@@ -11,17 +11,33 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        repository:
-          - elpa
-          - nongnu
-          - org-mode
+        include:
+          - repository: elpa
+            mirror: false
+          - repository: nongnu
+            mirror: false
+          - repository: org-mode
+            mirror: true
+
     steps:
+      - name: Configure
+        id: config
+        run: |
+          if [[ ${{ matrix.mirror }} = true ]]; then
+            echo >> "$GITHUB_OUTPUT" working_dir=${{ matrix.repository }}.git
+            echo >> "$GITHUB_OUTPUT" flag=--mirror
+          else
+            echo >> "$GITHUB_OUTPUT" working_dir=${{ matrix.repository }}
+            echo >> "$GITHUB_OUTPUT" flag=
+          fi
+
       - name: Clone
         run: |
-          git clone --no-single-branch \
+          git clone ${{ steps.config.outputs.flag }} \
             https://git.savannah.gnu.org/git/emacs/${{ matrix.repository }}.git
+
       - name: Push
-        working-directory: ${{ matrix.repository }}
+        working-directory: ${{ steps.config.outputs.working_dir }}
         run: |
           git remote set-url --push origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository_owner }}/${{ matrix.repository }}.git
           git push --force origin --all
