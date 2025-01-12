@@ -18,7 +18,8 @@ jobs:
     steps:
       - name: Clone
         run: |
-          git clone https://git.savannah.gnu.org/git/emacs/${{ matrix.repository }}.git
+          git clone --no-single-branch \
+            https://git.savannah.gnu.org/git/emacs/${{ matrix.repository }}.git
       - name: Push
         working-directory: ${{ matrix.repository }}
         run: |
