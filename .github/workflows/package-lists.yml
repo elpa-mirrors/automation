@@ -1,0 +1,31 @@
+name: Update package lists
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '28 1/2 * * *'
+
+concurrency:
+  group: ${{ github.workflow }}
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: nixbuild/nix-quick-install-action@1f095fee853b33114486cfdeae62fa099cda35a9 # v33
+        with:
+          nix_conf: |
+            keep-env-derivations = true
+            keep-outputs = true
+
+      - name: Generate the package lists
+        run:
+          nix build .#package-lists -L
+          cp -v result/*.* lists/
+
+      - name: Commit the changes
+        uses: stefanzweifel/git-auto-commit-action@778341af668090896ca464160c2def5d1d1a3eb0 # v6
+        with:
+          commit_message: 'chore: Update the package lists'
