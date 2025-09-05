@@ -27,19 +27,44 @@ jobs:
         id: config
         run: |
           if [[ ${{ matrix.mirror }} = true ]]; then
-            echo >> "$GITHUB_OUTPUT" working_dir=${{ matrix.name }}.git
-            echo >> "$GITHUB_OUTPUT" flag=--mirror
+            {
+              echo working_dir=${{ matrix.name }}.git
+              echo flag=--mirror
+              echo upstream_flag=--mirror=fetch
+              echo fetch_arg=
+            } >> "$GITHUB_OUTPUT"
           else
-            echo >> "$GITHUB_OUTPUT" working_dir=${{ matrix.name }}
-            echo >> "$GITHUB_OUTPUT" flag=
+            {
+              echo working_dir=${{ matrix.name }}
+              echo flag=
+              echo upstream_flag=
+              echo fetch_arg=HEAD
+            } >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Clone
+      - name: Cache the repository
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.config.outputs.working_dir }}
+          key: ${{ matrix.name }}-1
+
+      - name: Clone from GitHub
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          git clone ${{ steps.config.outputs.flag }} ${{ matrix.url }}
+          git clone ${{ steps.config.outputs.flag }} --filter=blob:none \
+            https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository_owner }}/${{ matrix.name }}.git \
+            ${{ steps.config.outputs.working_dir }}
+          cd ${{ steps.config.outputs.working_dir }}
+          git remote add ${{ steps.config.outputs.upstream_flag }} \
+            upstream ${{ matrix.url }}
+
+      - name: Fetch from the upstream
+        working-directory: ${{ steps.config.outputs.working_dir }}
+        run: |
+          git fetch --prune upstream ${{ steps.config.outputs.fetch_arg }}
 
       - name: Push
         working-directory: ${{ steps.config.outputs.working_dir }}
         run: |
-          git remote set-url --push origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository_owner }}/${{ matrix.name }}.git
           git push --force origin --all
