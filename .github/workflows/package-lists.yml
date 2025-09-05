@@ -21,7 +21,7 @@ jobs:
             keep-outputs = true
 
       - name: Generate the package lists
-        run:
+        run: |
           nix build .#package-lists -L
           cp -v result/*.* lists/
 
