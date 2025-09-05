@@ -1,0 +1,96 @@
+{
+  "nodes": {
+    "elisp-helpers": {
+      "inputs": {
+        "fromElisp": "fromElisp"
+      },
+      "locked": {
+        "lastModified": 1754989269,
+        "narHash": "sha256-WNOlf4cEEUL+nfYHVXUPMuqzYJSWOOWGX2fZ9MR3zzo=",
+        "owner": "emacs-twist",
+        "repo": "elisp-helpers",
+        "rev": "04ce2b5a88256d1c0573c94e93de6eb0700cd3a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emacs-twist",
+        "repo": "elisp-helpers",
+        "type": "github"
+      }
+    },
+    "fromElisp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723987997,
+        "narHash": "sha256-OhaVgTG6zjLByzl+uPTvtCld3p2uqgbCXmOl/s3LVRo=",
+        "owner": "talyz",
+        "repo": "fromElisp",
+        "rev": "f071a0e262c02c0895b575c4e322b7fd90713543",
+        "type": "github"
+      },
+      "original": {
+        "owner": "talyz",
+        "repo": "fromElisp",
+        "type": "github"
+      }
+    },
+    "gnu-elpa": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1755952702,
+        "narHash": "sha256-a07Fxi2bGRW0NZ62wkKZEnLhLOpSHsFBd5Cosb+Uemk=",
+        "owner": "elpa-mirrors",
+        "repo": "elpa",
+        "rev": "1659c7c04d0d0d2f2f3655d4d483138033e622b8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elpa-mirrors",
+        "repo": "elpa",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1756911493,
+        "narHash": "sha256-6n/n1GZQ/vi+LhFXMSyoseKdNfc2QQaSBXJdgamrbkE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c6a788f552b7b7af703b1a29802a7233c0067908",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nongnu": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754301385,
+        "narHash": "sha256-9ayIcAYb6smGUCrCNQIC/o8M/veohem5MDB8mDTPxYE=",
+        "owner": "elpa-mirrors",
+        "repo": "nongnu",
+        "rev": "1033e9d77a568101b50de97a5de9102a85e8fcf6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elpa-mirrors",
+        "repo": "nongnu",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "elisp-helpers": "elisp-helpers",
+        "gnu-elpa": "gnu-elpa",
+        "nixpkgs": "nixpkgs",
+        "nongnu": "nongnu"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
