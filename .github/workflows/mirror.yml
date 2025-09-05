@@ -12,11 +12,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - repository: elpa
+          - name: elpa
+            url: git://git.savannah.gnu.org/emacs/elpa.git
             mirror: false
-          - repository: nongnu
+          - name: nongnu
+            url: git://git.savannah.gnu.org/emacs/nongnu.git
             mirror: false
-          - repository: org-mode
+          - name: org-mode
+            url: git://git.savannah.gnu.org/emacs/org-mode.git
             mirror: true
 
     steps:
@@ -24,20 +27,19 @@ jobs:
         id: config
         run: |
           if [[ ${{ matrix.mirror }} = true ]]; then
-            echo >> "$GITHUB_OUTPUT" working_dir=${{ matrix.repository }}.git
+            echo >> "$GITHUB_OUTPUT" working_dir=${{ matrix.name }}.git
             echo >> "$GITHUB_OUTPUT" flag=--mirror
           else
-            echo >> "$GITHUB_OUTPUT" working_dir=${{ matrix.repository }}
+            echo >> "$GITHUB_OUTPUT" working_dir=${{ matrix.name }}
             echo >> "$GITHUB_OUTPUT" flag=
           fi
 
       - name: Clone
         run: |
-          git clone ${{ steps.config.outputs.flag }} \
-            https://git.savannah.gnu.org/git/emacs/${{ matrix.repository }}.git
+          git clone ${{ steps.config.outputs.flag }} ${{ matrix.url }}
 
       - name: Push
         working-directory: ${{ steps.config.outputs.working_dir }}
         run: |
-          git remote set-url --push origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository_owner }}/${{ matrix.repository }}.git
+          git remote set-url --push origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository_owner }}/${{ matrix.name }}.git
           git push --force origin --all
