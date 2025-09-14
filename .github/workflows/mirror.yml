@@ -53,7 +53,7 @@ jobs:
           key: ${{ matrix.name }}-1
 
       - name: Delay
-        run: sleep "{{ $matrix.delay }}"
+        run: sleep "${{ matrix.delay }}"
 
       - name: Clone from GitHub
         if: steps.cache.outputs.cache-hit != 'true'
