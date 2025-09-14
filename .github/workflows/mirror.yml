@@ -15,12 +15,15 @@ jobs:
           - name: elpa
             url: git://git.savannah.gnu.org/emacs/elpa.git
             mirror: false
+            delay: 7
           - name: nongnu
             url: git://git.savannah.gnu.org/emacs/nongnu.git
             mirror: false
+            delay: 37
           - name: org-mode
             url: git://git.savannah.gnu.org/emacs/org-mode.git
             mirror: true
+            delay: 72
 
     steps:
       - name: Configure
@@ -48,6 +51,9 @@ jobs:
         with:
           path: ${{ steps.config.outputs.working_dir }}
           key: ${{ matrix.name }}-1
+
+      - name: Delay
+        run: sleep "{{ $matrix.delay }}"
 
       - name: Clone from GitHub
         if: steps.cache.outputs.cache-hit != 'true'
