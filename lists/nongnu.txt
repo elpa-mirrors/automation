@@ -28,6 +28,7 @@ cider
 clojure-mode
 clojure-ts-mode
 coffee-mode
+cond-let
 consult-flycheck
 corfu-terminal
 crux
@@ -212,6 +213,7 @@ solarized-theme
 spacemacs-theme
 spell-fu
 sqlite3
+standard-keys-mode
 stylus-mode
 subatomic-theme
 subed

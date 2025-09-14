@@ -261,6 +261,7 @@ minibuffer-line
 minimap
 minuet
 mmm-mode
+mode-line-maker
 modus-themes
 mpdired
 multi-mode
