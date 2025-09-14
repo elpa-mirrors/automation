@@ -70,7 +70,7 @@ jobs:
         run: |
           git config remote.upstream.promisor true
           git config remote.upstream.partialclonefilter blob:none
-          git fetch --prune upstream ${{ steps.config.outputs.fetch_arg }}
+          git pull --prune upstream ${{ steps.config.outputs.fetch_arg }}
 
       - name: Push
         working-directory: ${{ steps.config.outputs.working_dir }}
