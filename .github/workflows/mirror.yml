@@ -34,13 +34,15 @@ jobs:
               echo working_dir=${{ matrix.name }}.git
               echo flag=--mirror
               echo upstream_flag=--mirror=fetch
-              echo fetch_arg=
+              echo fetch_operation=fetch
+              echo fetch_arg=-v
             } >> "$GITHUB_OUTPUT"
           else
             {
               echo working_dir=${{ matrix.name }}
               echo flag=
               echo upstream_flag=
+              echo fetch_operation=pull
               echo fetch_arg=HEAD
             } >> "$GITHUB_OUTPUT"
           fi
@@ -70,7 +72,8 @@ jobs:
         run: |
           git config remote.upstream.promisor true
           git config remote.upstream.partialclonefilter blob:none
-          git pull --prune upstream ${{ steps.config.outputs.fetch_arg }}
+          git ${{ steps.config.outputs.fetch_operation }} \
+            --prune upstream ${{ steps.config.outputs.fetch_arg }}
 
       - name: Push
         working-directory: ${{ steps.config.outputs.working_dir }}
