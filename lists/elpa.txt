@@ -45,6 +45,7 @@ brief
 buffer-env
 buffer-expose
 bufferlo
+buframe
 bug-hunter
 buildbot
 calibre
