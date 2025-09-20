@@ -29,7 +29,13 @@ jobs:
           nix flake update gnu-elpa nongnu
           nix build .#package-lists -L
           cp -v result/*.* lists/
-          git diff
+
+      - name: Revert flake.lock if no change has been made in lists/
+        run: |
+          if git diff --exit-code lists
+          then
+            git checkout HEAD -- flake.lock
+          fi
 
       - name: Commit the changes
         uses: stefanzweifel/git-auto-commit-action@778341af668090896ca464160c2def5d1d1a3eb0 # v6
