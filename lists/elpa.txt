@@ -413,6 +413,7 @@ taxy
 taxy-magit-section
 temp-buffer-browse
 tempel
+termint
 test-simple
 tex-item
 tex-parens
