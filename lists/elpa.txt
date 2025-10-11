@@ -259,6 +259,7 @@ midi-kbd
 mines
 minibuffer-header
 minibuffer-line
+minimail
 minimap
 minuet
 mmm-mode
