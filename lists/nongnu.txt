@@ -130,6 +130,7 @@ iedit
 inf-clojure
 inf-ruby
 inkpot-theme
+isl
 iwindow
 j-mode
 jade-mode
