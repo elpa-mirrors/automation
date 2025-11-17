@@ -28,6 +28,8 @@ jobs:
             mirror: true
             delay: 72
 
+    timeout-minutes: 10
+
     steps:
       - name: Configure
         id: config
