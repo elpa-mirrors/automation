@@ -14,14 +14,17 @@ jobs:
         include:
           - name: elpa
             url: git://cgit.git.savannah.gnu.org/emacs/elpa.git/
+            branch: main
             mirror: false
             delay: 7
           - name: nongnu
             url: git://cgit.git.savannah.gnu.org/emacs/nongnu.git/
+            branch: main
             mirror: false
             delay: 37
           - name: org-mode
             url: git://cgit.git.savannah.gnu.org/emacs/org-mode.git/
+            branch: main
             mirror: true
             delay: 72
 
@@ -45,7 +48,7 @@ jobs:
               echo flag=
               echo upstream_flag=
               echo fetch_operation=pull
-              echo fetch_arg=HEAD
+              echo fetch_arg=${{ matrix.branch }}
             } >> "$GITHUB_OUTPUT"
           fi
 
