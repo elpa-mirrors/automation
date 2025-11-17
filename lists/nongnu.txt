@@ -74,6 +74,8 @@ evil-visual-mark-mode
 evil-visualstar
 exec-path-from-shell
 extmap
+fedi
+fj
 flx
 flx-ido
 flycheck
@@ -138,6 +140,7 @@ jinja2-mode
 julia-mode
 keycast
 kotlin-mode
+lem
 llama
 logview
 loopy
@@ -186,6 +189,7 @@ pg
 php-mode
 popon
 popup
+powershell
 projectile
 proof-general
 prop-menu
