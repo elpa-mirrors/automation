@@ -76,7 +76,7 @@ jobs:
         working-directory: ${{ steps.config.outputs.working_dir }}
         run: |
           git config remote.upstream.promisor true
-          git config remote.upstream.partialclonefilter blob:none
+          # git config remote.upstream.partialclonefilter blob:none
           git ${{ steps.config.outputs.fetch_operation }} \
             --prune upstream ${{ steps.config.outputs.fetch_arg }}
 
