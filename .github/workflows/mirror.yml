@@ -57,7 +57,7 @@ jobs:
         uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
         with:
           path: ${{ steps.config.outputs.working_dir }}
-          key: ${{ matrix.name }}-1
+          key: ${{ matrix.name }}-2
 
       - name: Delay
         run: sleep "${{ matrix.delay }}"
