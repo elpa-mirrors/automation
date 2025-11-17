@@ -72,18 +72,6 @@ jobs:
           git remote add ${{ steps.config.outputs.upstream_flag }} \
             upstream ${{ matrix.url }}
 
-      - name: Clean up stale refs
-        if: steps.cache.outputs.cache-hit == 'true'
-        working-directory: ${{ steps.config.outputs.working_dir }}
-        run: |
-          # Remove any stale remote refs that might reference non-existent commits
-          git remote prune upstream || true
-          # Clean up any dangling objects
-          git gc --prune=now || true
-          # Remove partial clone filter temporarily to avoid conflicts
-          git config --unset remote.upstream.promisor || true
-          git config --unset remote.upstream.partialclonefilter || true
-
       - name: Fetch from the upstream
         working-directory: ${{ steps.config.outputs.working_dir }}
         run: |
