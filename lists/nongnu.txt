@@ -53,6 +53,7 @@ edit-indirect
 editorconfig
 eglot-inactive-regions
 eldoc-diffstat
+eldoc-mouse
 elixir-mode
 elpher
 emacsql
