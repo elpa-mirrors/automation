@@ -115,6 +115,7 @@ dired-git-info
 dired-preview
 disk-usage
 dismal
+disproject
 djvu
 do-at-point
 doc-toc
