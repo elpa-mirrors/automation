@@ -375,6 +375,7 @@ shelisp
 shell-command+
 shell-quasiquote
 shen-mode
+shift-number
 show-font
 sisu-mode
 site-lisp
