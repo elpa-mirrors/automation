@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '11 1/6 * * *'
+  pull_request:
+    paths:
+      - '.github/workflows/mirror.yml'
 concurrency:
   group: ${{ github.workflow }}
 jobs:
