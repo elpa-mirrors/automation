@@ -59,6 +59,7 @@ elixir-mode
 elpher
 emacsql
 engine-mode
+esxml
 evil
 evil-anzu
 evil-args
@@ -165,6 +166,7 @@ multiple-cursors
 nasm-mode
 nginx-mode
 nix-mode
+nov
 oblivion-theme
 opam-switch-mode
 org-auto-tangle
