@@ -37,11 +37,11 @@
     "gnu-elpa": {
       "flake": false,
       "locked": {
-        "lastModified": 1768211359,
-        "narHash": "sha256-T3OhwwT+76cvQijyxJZ61UJFvUJ+72QeA8tOt5qsI8M=",
+        "lastModified": 1768694144,
+        "narHash": "sha256-EQ+EAK7z/jy0VW8E79NhCp8vMw3lufko8GbaVMiFksA=",
         "owner": "elpa-mirrors",
         "repo": "elpa",
-        "rev": "83e574ac8a683151104c11e1f666cf67a3b3b4cc",
+        "rev": "150646f4f53c2a72d6499493826026caf9a2e723",
         "type": "github"
       },
       "original": {
@@ -69,11 +69,11 @@
     "nongnu": {
       "flake": false,
       "locked": {
-        "lastModified": 1768450634,
-        "narHash": "sha256-3blV4hlvT2SEXoGNVYzwQugFx+/ooGy9nDbTRFON+3g=",
+        "lastModified": 1768692072,
+        "narHash": "sha256-7tExex6sSQCoLKrSaJUbVyNcP64Si9FbQ+uvsM7AdME=",
         "owner": "elpa-mirrors",
         "repo": "nongnu",
-        "rev": "eb50ab5fb85b1328cdb078358aced9492d798d74",
+        "rev": "4196ff45a2f1659bb8cf422137cf54df55b7a914",
         "type": "github"
       },
       "original": {
