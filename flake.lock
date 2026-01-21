@@ -69,11 +69,11 @@
     "nongnu": {
       "flake": false,
       "locked": {
-        "lastModified": 1768647944,
-        "narHash": "sha256-XW773D96k9XctldfMcerDB8H3So5ZUFPzxx8zSisXT0=",
+        "lastModified": 1768829468,
+        "narHash": "sha256-csxj9VfOaoC8EN39Pkg2mQvn1O/Qk1HTzBl6/94R59I=",
         "owner": "elpa-mirrors",
         "repo": "nongnu",
-        "rev": "255482e02e78db25e82fba0e95079480c685de50",
+        "rev": "6b078c9935f279e7971f53770d354ab6ce15deb6",
         "type": "github"
       },
       "original": {

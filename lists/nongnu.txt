@@ -139,6 +139,7 @@ isl
 iwindow
 j-mode
 jade-mode
+javelin
 jinja2-mode
 julia-mode
 keycast
