@@ -57,6 +57,7 @@ chess
 cl-generic
 cl-lib
 clipboard-collector
+cm-mode
 cobol-mode
 code-cells
 colorful-mode
@@ -98,6 +99,7 @@ denote-journal
 denote-markdown
 denote-menu
 denote-org
+denote-review
 denote-search
 denote-sequence
 denote-silo
