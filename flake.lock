@@ -37,11 +37,11 @@
     "gnu-elpa": {
       "flake": false,
       "locked": {
-        "lastModified": 1768646227,
-        "narHash": "sha256-Yn1OQh9xPZ7auqsMc2g7sDLA4eYjrt5C/mSir61j5xQ=",
+        "lastModified": 1769714119,
+        "narHash": "sha256-57tTMph8eKA3nV1R4UWDhxNfFt8iV89fcIVVDggBsBo=",
         "owner": "elpa-mirrors",
         "repo": "elpa",
-        "rev": "24030873c43f5dc1147ed3c2164092b4c9ab4357",
+        "rev": "3a23311d14d576b11e1f70328d7b2986a9c0b42b",
         "type": "github"
       },
       "original": {
