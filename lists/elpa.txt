@@ -173,7 +173,6 @@ frame-tabs
 frog-menu
 fsm
 ftable
-futur
 gcmh
 ggtags
 gited
