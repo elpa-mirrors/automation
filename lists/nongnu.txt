@@ -63,6 +63,7 @@ esxml
 evil
 evil-anzu
 evil-args
+evil-emacs-cursor-model-mode
 evil-escape
 evil-exchange
 evil-goggles
