@@ -143,6 +143,7 @@ elisa
 elisp-benchmarks
 ellama
 emacs-gc-stats
+emacs-lisp-intro-es
 emacs-lisp-intro-nl
 embark
 embark-consult
