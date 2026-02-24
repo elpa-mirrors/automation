@@ -182,6 +182,7 @@ gnat-compiler
 gnome-c-style
 gnome-dark-style
 gnorb
+gnosis
 gnu-elpa
 gnu-elpa-keyring-update
 gnugo
