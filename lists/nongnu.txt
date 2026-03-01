@@ -24,6 +24,7 @@ boxquote
 buttercup
 camera
 caml
+casual
 cdlatex
 cider
 clojure-mode
