@@ -302,6 +302,7 @@ org-contacts
 org-edna
 org-gnosis
 org-jami-bot
+org-mem
 org-modern
 org-notify
 org-real
@@ -446,6 +447,7 @@ tree-inspector
 trie
 trinary
 triples
+truename-cache
 ulisp-repl
 undo-tree
 uni-confusables
