@@ -105,7 +105,6 @@ geiser-mit
 geiser-racket
 geiser-stklos
 git-modes
-gnosis
 gnu-apl-mode
 gnu-indent
 gnuplot
