@@ -322,6 +322,7 @@ path-iterator
 peg
 perl-doc
 persist
+php-fill
 phpinspect
 phps-mode
 pinentry
