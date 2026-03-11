@@ -241,6 +241,7 @@ textile-mode
 toc-org
 totp-auth
 tp
+treepy
 treesit-fold
 treeview
 tuareg
