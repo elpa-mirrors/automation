@@ -56,6 +56,7 @@ editorconfig
 eglot-inactive-regions
 eldoc-diffstat
 eldoc-mouse
+eldoc-mouse-nov
 elixir-mode
 elpher
 emacsql
@@ -215,6 +216,7 @@ scad-mode
 scala-mode
 scroll-on-drag
 scroll-on-jump
+selected-window-contrast
 sesman
 shellcop
 slime
