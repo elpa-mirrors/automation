@@ -140,6 +140,7 @@ inkpot-theme
 isl
 iwindow
 j-mode
+jabber
 jade-mode
 javelin
 jinja2-mode
