@@ -119,6 +119,7 @@ disk-usage
 dismal
 disproject
 djvu
+dmsg
 do-at-point
 doc-toc
 doc-view-follow
