@@ -450,6 +450,7 @@ trie
 trinary
 triples
 truename-cache
+trust-manager
 ulisp-repl
 undo-tree
 uni-confusables
