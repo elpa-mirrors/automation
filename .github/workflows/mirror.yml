@@ -114,15 +114,6 @@ jobs:
         env:
           GITHUB_APP_TOKEN: ${{ steps.github-token.outputs.token }}
         run: |
-          git config credential.helper 'cache --timeout=300'
-          fill_credential() {
-            printf '%s\n' \
-              protocol=https \
-              host=github.com \
-              username=x-access-token \
-              "password=$GITHUB_APP_TOKEN" \
-              ''
-          }
-          trap 'fill_credential | git credential reject' EXIT
-          fill_credential | git credential approve
+          git config --local "http.https://github.com/.extraheader" \
+            "AUTHORIZATION: basic $(echo -n "x-access-token:${GITHUB_APP_TOKEN}" | base64)"
           git push --force origin --all
