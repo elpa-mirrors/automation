@@ -171,6 +171,7 @@ flymake-clippy
 flymake-codespell
 flymake-proselint
 fontaine
+forgejo
 frame-tabs
 frog-menu
 fsm
@@ -229,6 +230,7 @@ js2-mode
 json-mode
 jsonrpc
 jumpc
+keymap-popup
 kind-icon
 kiwix
 kmb
@@ -490,6 +492,7 @@ windower
 windresize
 wisi
 wisitoken-grammar-mode
+with-command-redo
 wpuzzle
 wrap-search
 xclip

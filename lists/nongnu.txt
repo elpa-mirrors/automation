@@ -57,10 +57,13 @@ eglot-inactive-regions
 eldoc-diffstat
 eldoc-mouse
 eldoc-mouse-nov
+elfeed
+elfeed-web
 elixir-mode
 elpher
 emacsql
 engine-mode
+eprolog
 esxml
 evil
 evil-anzu
@@ -220,6 +223,7 @@ scroll-on-jump
 selected-window-contrast
 sesman
 shellcop
+simple-httpd
 slime
 sly
 smartparens
