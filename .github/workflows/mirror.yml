@@ -108,7 +108,12 @@ jobs:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
           permission-contents: write
-      
+          owner: ${{ github.repository_owner }}
+          repositories: |
+            org-mode
+            elpa
+            nongnu
+
       - name: Push
         working-directory: ${{ steps.config.outputs.working_dir }}
         env:
