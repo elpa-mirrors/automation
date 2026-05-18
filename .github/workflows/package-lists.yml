@@ -8,15 +8,21 @@ on:
 concurrency:
   group: ${{ github.workflow }}
 
+permissions: {}
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
+
     permissions:
-      contents: write
+      contents: read
+
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.head_ref || 'master' }}
+          persist-credentials: false
+          fetch-depth: 0
 
       - uses: nixbuild/nix-quick-install-action@2c9db80fb984ceb1bcaa77cdda3fdf8cfba92035 # v34
         with:
@@ -31,13 +37,42 @@ jobs:
           cp -v result/*.* lists/
 
       - name: Revert flake.lock if no change has been made in lists/
+        id: changes
         run: |
           if git diff --exit-code lists
           then
-            git checkout HEAD -- flake.lock
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "elpa-mirrors-package-lists[bot]"
+            git config user.email "3757287+elpa-mirrors-package-lists[bot]@users.noreply.github.com"
+            git add lists
+            git commit -m 'chore: Update the package lists'
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Commit the changes
-        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7
+      - uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.1.1
+        if: steps.changes.outputs.changed == 'true'
+        id: github-token
         with:
-          commit_message: 'chore: Update the package lists'
+          # The app ID isn't a secret at all, but it is fine.
+          app-id: ${{ secrets.PACKAGE_LISTS_APP_ID }}
+          private-key: ${{ secrets.PACKAGE_LISTS_APP_PRIVATE_KEY }}
+          permission-contents: write
+
+      - if: steps.changes.outputs.changed == 'true'
+        env:
+          GITHUB_APP_TOKEN: ${{ steps.github-token.outputs.token }}
+          HEAD_REF: ${{ github.head_ref || 'master' }}
+        run: |
+          git config credential.helper 'cache --timeout=300'
+          fill_credential() {
+            printf '%s\n' \
+              protocol=https \
+              host=github.com \
+              username=x-access-token \
+              "password=$GITHUB_APP_TOKEN" \
+              ''
+          }
+          trap 'fill_credential | git credential reject' EXIT
+          fill_credential | git credential approve
+          git push origin "HEAD:$HEAD_REF"
