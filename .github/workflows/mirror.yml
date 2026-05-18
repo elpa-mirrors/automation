@@ -1,4 +1,5 @@
 name: Mirror repositories
+
 on:
   workflow_dispatch:
   schedule:
@@ -6,11 +7,17 @@ on:
   pull_request:
     paths:
       - '.github/workflows/mirror.yml'
+
 concurrency:
   group: ${{ github.workflow }}
+
+permissions: {}
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:
@@ -57,30 +64,61 @@ jobs:
         uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
         with:
           path: ${{ steps.config.outputs.working_dir }}
-          key: ${{ matrix.name }}-3
+          key: ${{ matrix.name }}-4
 
       - name: Delay
         run: sleep "${{ matrix.delay }}"
 
       - name: Clone from GitHub
         if: steps.cache.outputs.cache-hit != 'true'
+        env:
+          CLONE_FLAG: ${{ steps.config.outputs.flag }}
+          UPSTREAM_FLAG: ${{ steps.config.outputs.upstream_flag }}
+          WORKING_DIR: ${{ steps.config.outputs.working_dir }}
         run: |
-          git clone ${{ steps.config.outputs.flag }} --filter=blob:none \
-            https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository_owner }}/${{ matrix.name }}.git \
-            ${{ steps.config.outputs.working_dir }}
-          cd ${{ steps.config.outputs.working_dir }}
-          git remote add ${{ steps.config.outputs.upstream_flag }} \
+          clone_args=()
+          if [[ -n "$CLONE_FLAG" ]]; then
+            clone_args+=("$CLONE_FLAG")
+          fi
+          git clone "${clone_args[@]}" --filter=blob:none \
+            https://github.com/${{ github.repository_owner }}/${{ matrix.name }}.git \
+            "$WORKING_DIR"
+          cd "$WORKING_DIR"
+          upstream_args=()
+          if [[ -n "$UPSTREAM_FLAG" ]]; then
+            upstream_args+=("$UPSTREAM_FLAG")
+          fi
+          git remote add "${upstream_args[@]}" \
             upstream ${{ matrix.url }}
 
       - name: Fetch from the upstream
         working-directory: ${{ steps.config.outputs.working_dir }}
+        env:
+          FETCH_ARG: ${{ steps.config.outputs.fetch_arg }}
+          FETCH_OPERATION: ${{ steps.config.outputs.fetch_operation }}
         run: |
           git config remote.upstream.promisor true
           # git config remote.upstream.partialclonefilter blob:none
-          git ${{ steps.config.outputs.fetch_operation }} \
-            --prune upstream ${{ steps.config.outputs.fetch_arg }}
+          git "$FETCH_OPERATION" \
+            --prune upstream "$FETCH_ARG"
+
+      - uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.1.1
+        id: github-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-contents: write
+          owner: ${{ github.repository_owner }}
+          repositories: |
+            org-mode
+            elpa
+            nongnu
 
       - name: Push
         working-directory: ${{ steps.config.outputs.working_dir }}
+        env:
+          GITHUB_APP_TOKEN: ${{ steps.github-token.outputs.token }}
         run: |
+          git config --local "http.https://github.com/.extraheader" \
+            "AUTHORIZATION: basic $(echo -n "x-access-token:${GITHUB_APP_TOKEN}" | base64)"
           git push --force origin --all
