@@ -162,6 +162,7 @@ expreg
 external-completion
 exwm
 f90-interface-browser
+ffs
 filechooser
 filladapt
 firefox-javascript-repl
