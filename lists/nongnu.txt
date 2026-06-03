@@ -85,6 +85,7 @@ exec-path-from-shell
 extmap
 fedi
 fj
+flamegraph
 flx
 flx-ido
 flycheck
