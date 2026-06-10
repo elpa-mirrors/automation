@@ -208,6 +208,7 @@ html5-schema
 hugoista
 hydra
 hyperbole
+ibuffer-sidebar
 idlwave
 ilist
 indent-bars
