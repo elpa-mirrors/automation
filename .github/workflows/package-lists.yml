@@ -55,7 +55,7 @@ jobs:
         id: github-token
         with:
           # The app ID isn't a secret at all, but it is fine.
-          app-id: ${{ secrets.PACKAGE_LISTS_APP_ID }}
+          client-id: ${{ secrets.PACKAGE_LISTS_APP_ID }}
           private-key: ${{ secrets.PACKAGE_LISTS_APP_PRIVATE_KEY }}
           permission-contents: write
 
