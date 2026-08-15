@@ -119,6 +119,6 @@ jobs:
         env:
           GITHUB_APP_TOKEN: ${{ steps.github-token.outputs.token }}
         run: |
-          git config --local "http.https://github.com/.extraheader" \
-            "AUTHORIZATION: basic $(echo -n "x-access-token:${GITHUB_APP_TOKEN}" | base64)"
-          git push --force origin --all
+          basic="$(printf 'x-access-token:%s' "$GITHUB_APP_TOKEN" | base64 --wrap=0)"
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $basic" \
+            push --force origin --all
