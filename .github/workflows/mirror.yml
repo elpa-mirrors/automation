@@ -120,7 +120,5 @@ jobs:
           GITHUB_APP_TOKEN: ${{ steps.github-token.outputs.token }}
         run: |
           basic="$(printf 'x-access-token:%s' "$GITHUB_APP_TOKEN" | base64 --wrap=0)"
-          # Reset credentials persisted by older versions of this cached checkout.
-          git -c "http.https://github.com/.extraheader=" \
-            -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $basic" \
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $basic" \
             push --force origin --all
