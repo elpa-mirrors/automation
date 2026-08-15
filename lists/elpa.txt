@@ -31,7 +31,6 @@ autorevert-tail-truncate
 avy
 bbdb
 beacon
-beardbolt
 beframe
 bicep-ts-mode
 bind-key
@@ -115,6 +114,7 @@ dired-du
 dired-duplicates
 dired-git-info
 dired-preview
+dired-sidebar
 disk-usage
 dismal
 disproject
@@ -245,6 +245,7 @@ lentic-server
 let-alist
 lex
 lin
+lisp-ts-mode
 listen
 literate-scratch
 llm
@@ -353,6 +354,7 @@ pulsar
 pyim
 pyim-basedict
 python
+qrencode
 quarter-plane
 queue
 rainbow-mode
@@ -383,6 +385,7 @@ satchel
 scanner
 scroll-restore
 sed-mode
+sendai-theme
 seq
 setup
 shelisp
@@ -394,6 +397,7 @@ show-font
 sisu-mode
 site-lisp
 sketch-mode
+slang-ts-mode
 slime-volleyball
 sm-c-mode
 smalltalk-mode
