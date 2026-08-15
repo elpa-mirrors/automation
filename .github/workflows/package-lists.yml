@@ -60,9 +60,11 @@ jobs:
           permission-contents: write
 
       - run: |
-          gh auth setup-git
+          basic="$(printf 'x-access-token:%s' "$GITHUB_APP_TOKEN" | base64 --wrap=0)"
+          git config --local "http.https://github.com/.extraheader" \
+            "AUTHORIZATION: basic $basic"
           git push origin "HEAD:$HEAD_REF"
         env:
-          GH_TOKEN: ${{ steps.github-token.outputs.token }}
+          GITHUB_APP_TOKEN: ${{ steps.github-token.outputs.token }}
           HEAD_REF: ${{ github.head_ref || 'master' }}
         if: steps.changes.outputs.changed == 'true'
