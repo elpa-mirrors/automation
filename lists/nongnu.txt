@@ -207,6 +207,7 @@ pinyin-isearch
 popon
 popup
 powershell
+project-store
 projectile
 proof-general
 prop-menu
