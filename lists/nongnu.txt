@@ -48,6 +48,7 @@ diff-ansi
 dirvish
 doc-show-inline
 dockerfile-mode
+doom-game
 dracula-theme
 drupal-mode
 dslide
