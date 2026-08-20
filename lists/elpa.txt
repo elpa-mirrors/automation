@@ -170,6 +170,7 @@ flylisp
 flymake
 flymake-clippy
 flymake-codespell
+flymake-harper
 flymake-proselint
 fontaine
 forgejo
