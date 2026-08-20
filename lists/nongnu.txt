@@ -223,6 +223,7 @@ rfc-mode
 rpm-spec-mode
 rubocop
 rust-mode
+sapling
 sass-mode
 scad-mode
 scala-mode
@@ -267,6 +268,7 @@ ujelly-theme
 undo-fu
 undo-fu-session
 vc-fossil
+vc-sapling
 vcomplete
 visual-fill-column
 vm
