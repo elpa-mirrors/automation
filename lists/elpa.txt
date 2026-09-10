@@ -359,6 +359,7 @@ python
 qrencode
 quarter-plane
 queue
+r-ts-mode
 rainbow-mode
 rbit
 rcirc-color
