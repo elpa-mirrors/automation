@@ -462,6 +462,7 @@ trinary
 triples
 truename-cache
 trust-manager
+typewriter
 ulisp-repl
 undo-tree
 uni-confusables
