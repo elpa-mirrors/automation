@@ -53,6 +53,7 @@ dracula-theme
 drupal-mode
 dslide
 eat
+ebuild-mode
 edit-indirect
 editorconfig
 eglot-inactive-regions
