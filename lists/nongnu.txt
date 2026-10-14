@@ -167,6 +167,7 @@ macrostep
 magit
 magit-section
 markdown-mode
+markdown-ts-appear
 mastodon
 material-theme
 mentor
