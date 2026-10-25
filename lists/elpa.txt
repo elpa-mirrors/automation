@@ -216,6 +216,7 @@ ilist
 indent-bars
 inspector
 ioccur
+isbn
 isearch-mb
 iso-date
 iterators
@@ -505,6 +506,7 @@ wisitoken-grammar-mode
 with-command-redo
 wpuzzle
 wrap-search
+xc
 xclip
 xeft
 xelb
