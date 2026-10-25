@@ -216,7 +216,6 @@ ilist
 indent-bars
 inspector
 ioccur
-isbn
 isearch-mb
 iso-date
 iterators
