@@ -37,11 +37,11 @@
     "gnu-elpa": {
       "flake": false,
       "locked": {
-        "lastModified": 1790099159,
-        "narHash": "sha256-6+FpcgrScg5uIM+PFfNOK7Da6UTg9GagU+q3JNbJbc8=",
+        "lastModified": 1792944529,
+        "narHash": "sha256-J8+mIeqb2wa8LPG0SX/y11TPGDPpGvUvnTSUHenFN5A=",
         "owner": "elpa-mirrors",
         "repo": "elpa",
-        "rev": "2129d367ed03c8e5d6e3cedca1c4224b62d03eb6",
+        "rev": "3b766a1c8276d0d6f1786f15b9d2e6d467257d09",
         "type": "github"
       },
       "original": {
@@ -52,11 +52,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1792116957,
-        "narHash": "sha256-EjZqHKObBfIOeHZnMRVV87HB3pPq/WBkmRJWyFxmZu8=",
+        "lastModified": 1792842277,
+        "narHash": "sha256-pGPnZGi8y9d76xNeracniXO3dsYVROEmMkMc8jD0Ihc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f20cd90e28fe0403873f473b29e42662cd86e8c4",
+        "rev": "d3b13ad75cc492690728f9307e443dec9ef9a20e",
         "type": "github"
       },
       "original": {
