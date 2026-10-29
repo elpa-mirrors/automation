@@ -377,6 +377,7 @@ realgud-pdbpp
 realgud-trepan-ni
 realgud-trepan-xpy
 rec-mode
+refactor
 register-list
 relint
 repology
