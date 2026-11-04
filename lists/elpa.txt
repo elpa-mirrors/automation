@@ -281,6 +281,7 @@ minuet
 mmm-mode
 mode-line-maker
 modus-themes
+modus-vague
 mpdired
 multi-mode
 multishell
