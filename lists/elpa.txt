@@ -151,6 +151,7 @@ embark
 embark-consult
 ement
 emms
+emureader
 engrave-faces
 enwc
 epoch-view
@@ -368,6 +369,7 @@ rcirc-color
 rcirc-mentions
 rcirc-menu
 rcirc-sqlite
+readline-completion
 realgud
 realgud-ipdb
 realgud-jdb
