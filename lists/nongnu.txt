@@ -10,6 +10,7 @@ anzu
 apache-mode
 apropospriate-theme
 arduino-mode
+au-themes
 auto-dim-other-buffers
 autothemer
 base32
